@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    animation: shake 0.5s infinite;
+}
+
+.question {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    animation: fadeIn 3s, blink 1.5s infinite;
+}
+
+.answer {
+    margin: 15px;
+    padding: 20px 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: darkred;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    animation: slideIn 1.5s, glow 1.5s infinite alternate;
+}
+
+.answer:hover {
+    background-color: crimson;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px rgba(255, 0, 0, 0.7); }
+    to { text-shadow: 0 0 15px rgba(255, 0, 0, 1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(-1deg); }
+    50% { transform: rotate(1deg); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
